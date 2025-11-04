@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: black;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: red;
+}
+
+.Subcription-container{
+    background-color: #111;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    color: red;
+    border: 2px solid red;
+}
+
+.subscription-form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.Subcription-container h2{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.subscription-form input[type="email"]{
+    padding: 12px;
+    border: 1px solid red;
+    border-radius: 5px;
+    background-color: black;
+    color: red;
+}
+
+.subscription-form button{
+    padding: 12px;
+    background-color: red;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.subscription-form button:hover{
+    background-color: red;
+}
+
+.info-text{
+    font-size: 14px;
+    color: darkred;
+}

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #faf8f5;
+    color: #3a3a3a;
+    font-family: "Roboto Slab", serif;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.7;
+}
+
+h1{
+    color: #6d4c41;
+    font-family: "Playfair Display", serif;
+    font-size: 45px;
+    font-weight: 900px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.author{
+    color: #a1887f;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.Poem{
+    font-size: 18px;
+    font-style: italic;
+    border-left: 4px solid #d7ccc8;
+    padding-left: 20px;
+    position: relative;
+}
+
+/*Decarative opening quote*/
+
+.Poem::before{
+    content: "‟";
+    font-family: "Playfair Display", serif;
+    font-size: 96px;
+    color: #d7ccc8;
+    position: absolute;
+    left: 0;
+    top: -20px;
+    line-height: 1;
+    user-select: none;
+}
+
+.Poem p {
+    margin: 0 0 29px 0;
+    white-space: pre-line;
+}
+
+.Poem p span{
+    display: block;
+    margin-left: 40px;
+    text-indent: -40px;
+}
+
