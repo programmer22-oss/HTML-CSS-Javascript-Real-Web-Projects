@@ -1,0 +1,9 @@
+h1{
+    color: red; /* set the text color is red */
+    font-size:28px; /* set the font size is 28px */
+}
+
+p{
+    font-size: 50px; /* set the font size is 50px */
+    color: yellow; /* set the text color is yellow */
+}

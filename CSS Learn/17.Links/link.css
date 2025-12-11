@@ -1,0 +1,28 @@
+a{
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+.visited:visited{
+    color: purple;
+}
+.hover:hover{
+    color: red;
+}
+.active:active{
+    color: orange;
+}
+
+.custom-link{
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+    background-color: lightgray;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.custom-link:hover{
+    background-color: darkgray;
+    color: white;
+}

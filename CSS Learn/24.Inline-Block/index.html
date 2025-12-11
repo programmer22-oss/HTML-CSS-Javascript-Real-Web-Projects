@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - Inline-Block</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .block{
+            display: block;
+            width: 100px;
+            background: lightblue;
+            margin: 5px;
+        }
+        .inline{
+            display: inline-block;
+            background: lightgreen;
+            margin: 5px;
+        }
+        .inline-block{
+            display: inline-block;
+            width: 100px;
+            background: lightcoral;
+            margin: 5px;
+        }
+
+        .box{
+            display: inline-block;
+            width: 120px;
+            height: 100px;
+            background: orange;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .container{
+            background: #eee;
+            padding:10px;
+        }
+        .text{
+            display: inline-block;
+            vertical-align: middle;
+            width: 60%;
+        }
+        .image{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        img{
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">Block</div>
+    <div class="inline">Inline</div>
+    <div class="inline">Inline</div>
+    <div class="inline-block">Inline-Block</div>
+    <div class="inline-block">Inline-Block</div>
+<br>
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+<br>
+    <div class="container">
+        <div class="text">This is a inline-block text.</div>
+        <div class="image"><img src="img/img7.png" alt="placeholder"></div>
+    </div>
+</body>
+</html>

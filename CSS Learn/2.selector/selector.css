@@ -1,0 +1,12 @@
+h1{
+    color: blue;
+}
+
+.special{
+    font-weight: bold;
+    color: red;
+}
+
+#unique{
+    text-decoration: underline;
+}

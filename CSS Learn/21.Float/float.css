@@ -1,0 +1,21 @@
+.left-box{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color:#007bff;
+}
+.right-box{
+    float: right;
+    width: 100px;
+    height: 100px;
+    background-color: #ff6600;
+}
+
+.box{
+    float: left;
+    width: 33.33%;
+    height: 200px;
+    background-color: aqua;
+    box-sizing: border-box;
+    padding: 10px;
+}

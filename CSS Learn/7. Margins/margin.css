@@ -1,0 +1,31 @@
+p{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+h1{
+    margin: 25px 50px 75px 100px;
+    border: 2px solid blue;
+}
+
+div{
+    margin: auto;
+    width: 300px;
+    border: 2px solid red;
+}
+
+p{
+    margin-left: inherit;
+}
+
+div{
+    border: 1px solid green;
+    margin: left 100px;;
+}
+
