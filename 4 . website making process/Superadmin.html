@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superadmin Dashboard</title>
+
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body { display: flex; min-height: 100vh; background: #f4f6f9; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #2575fc;
+      color: #fff;
+      flex-shrink: 0;
+      transition: 0.3s;
+      position: fixed;
+      height: 100vh;
+    }
+    .sidebar h2 {
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 1.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .sidebar ul { list-style: none; padding: 1rem; }
+    .sidebar ul li {
+      padding: 0.9rem 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .sidebar ul li:hover, .sidebar ul li.active {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 250px;
+      padding: 2rem;
+      flex: 1;
+      transition: 0.3s;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .topbar h1 { font-size: 1.5rem; color: #333; }
+    .profile { display: flex; align-items: center; gap: 1rem; }
+    .profile img {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+    }
+
+    /* Dashboard Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 { margin-bottom: 0.5rem; color: #333; }
+    .card p { font-size: 1.4rem; font-weight: 600; color: #2575fc; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: absolute;
+        left: -250px;
+      }
+      .sidebar.active { left: 0; }
+      .main-content { margin-left: 0; }
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+      }
+    }
+    .menu-toggle { display: none; color: #2575fc; }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2>Superadmin</h2>
+    <ul>
+      <li class="active"><i class="fas fa-home"></i> Dashboard</li>
+      <li><i class="fas fa-users"></i> Users</li>
+      <li><i class="fas fa-user-shield"></i> Admins</li>
+      <li><i class="fas fa-briefcase"></i> Employees</li>
+      <li><i class="fas fa-cogs"></i> Settings</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="topbar">
+      <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
+      <h1>Dashboard</h1>
+      <div class="profile">
+        <span>Superadmin</span>
+        <img src="https://via.placeholder.com/40" alt="Profile">
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card">
+        <h3>Total Users</h3>
+        <p>1,245</p>
+      </div>
+      <div class="card">
+        <h3>Total Admins</h3>
+        <p>25</p>
+      </div>
+      <div class="card">
+        <h3>Total Employees</h3>
+        <p>350</p>
+      </div>
+      <div class="card">
+        <h3>Revenue</h3>
+        <p>$12,500</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>

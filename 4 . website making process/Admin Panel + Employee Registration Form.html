@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+
+  <!-- Google Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourfontawesomekit.js" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { display: flex; min-height: 100vh; background: #f8fafc; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: #111827;
+      color: #fff;
+      position: fixed;
+      height: 100%;
+      padding-top: 1rem;
+      transition: 0.3s;
+    }
+    .sidebar h2 {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .sidebar ul { list-style: none; padding: 1rem; }
+    .sidebar ul li {
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      transition: 0.3s;
+    }
+    .sidebar ul li:hover, .sidebar ul li.active {
+      background: #2563eb;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 240px;
+      padding: 2rem;
+      flex: 1;
+      transition: 0.3s;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .menu-toggle { display: none; font-size: 1.5rem; color: #2563eb; cursor: pointer; }
+    .profile {
+      display: flex; align-items: center; gap: 1rem;
+      background: #fff; padding: 0.5rem 1rem;
+      border-radius: 2rem; box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .profile img { width: 35px; height: 35px; border-radius: 50%; }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { margin-bottom: 0.5rem; color: #111; }
+    .card p { font-size: 1.3rem; font-weight: 600; color: #2563eb; }
+
+    /* Table */
+    .table-container {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      overflow-x: auto;
+    }
+    table { width: 100%; border-collapse: collapse; min-width: 600px; }
+    table th, table td {
+      text-align: left;
+      padding: 0.9rem;
+      border-bottom: 1px solid #eee;
+    }
+    table th { background: #f1f5f9; color: #333; font-weight: 600; }
+    table tr:hover { background: #f9fafb; }
+
+    /* Employee Registration Form */
+    .form-container {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    .form-container h3 {
+      margin-bottom: 1rem;
+      color: #111;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 5px rgba(37,99,235,0.3);
+      outline: none;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 0.5rem;
+      background: #2563eb;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .submit-btn:hover { background: #1e4fc5; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar { left: -240px; position: absolute; }
+      .sidebar.active { left: 0; }
+      .main-content { margin-left: 0; }
+      .menu-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+      <li><i class="fas fa-users"></i> Manage Users</li>
+      <li><i class="fas fa-user-plus"></i> Employee Registration</li>
+      <li><i class="fas fa-chart-line"></i> Analytics</li>
+      <li><i class="fas fa-cogs"></i> Settings</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="topbar">
+      <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
+      <h1>Dashboard</h1>
+      <div class="profile">
+        <span>Admin</span>
+        <img src="https://via.placeholder.com/35" alt="Profile">
+      </div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="cards">
+      <div class="card"><h3>Active Users</h3><p>980</p></div>
+      <div class="card"><h3>Reports</h3><p>150</p></div>
+      <div class="card"><h3>Tasks</h3><p>87</p></div>
+      <div class="card"><h3>Revenue</h3><p>$8,750</p></div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-container">
+      <h3 style="margin-bottom: 1rem;">Recent Users</h3>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>John Doe</td><td>john@example.com</td><td>User</td><td style="color:green;">Active</td></tr>
+          <tr><td>Mary Smith</td><td>mary@example.com</td><td>User</td><td style="color:red;">Inactive</td></tr>
+          <tr><td>James Brown</td><td>james@example.com</td><td>Moderator</td><td style="color:green;">Active</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Employee Registration Form -->
+    <div class="form-container">
+      <h3>Employee Registration</h3>
+      <form>
+        <div class="form-group">
+          <label for="emp-name">Full Name</label>
+          <input type="text" id="emp-name" placeholder="Enter full name" required>
+        </div>
+        <div class="form-group">
+          <label for="emp-email">Email</label>
+          <input type="email" id="emp-email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+          <label for="emp-role">Role</label>
+          <select id="emp-role" required>
+            <option value="">Select Role</option>
+            <option value="Employee">Employee</option>
+            <option value="Manager">Manager</option>
+            <option value="HR">HR</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="emp-password">Password</label>
+          <input type="password" id="emp-password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="submit-btn">Register Employee</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>

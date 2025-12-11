@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Landing Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      padding: 20px;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .menu {
+      display: flex;
+      gap: 15px;
+    }
+    nav .menu a {
+      text-decoration: none;
+      color: #333;
+    }
+    .heading {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .case-studies {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background: #fff;
+    }
+    .case-studies .case {
+      width: 30%;
+      background: #eee;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .clients {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: #fafafa;
+      padding: 30px 0;
+    }
+    .clients img {
+      height: 30px;
+    }
+    .testimonials {
+      background: #fff;
+      padding: 30px;
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .testimonial {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 10px;
+      width: 30%;
+    }
+    .testimonial img {
+      width: 40px;
+      border-radius: 50%;
+    }
+    .about {
+      background: #fff;
+      padding: 30px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .about img {
+      width: 80px;
+      border-radius: 50%;
+    }
+    .contact {
+      padding: 20px;
+      background: #f0f0f0;
+      text-align: center;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo"><strong>MyPortfolio</strong></div>
+      <div class="menu">
+        <a href="#case-studies">Case Studies</a>
+        <a href="#clients">Clients</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="heading">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Showcasing My Work, Clients, and Stories</p>
+  </div>
+
+  <section id="case-studies" class="case-studies">
+    <div class="case">
+      <h3>Project One</h3>
+      <p>Brief description of the project.</p>
+    </div>
+    <div class="case">
+      <h3>Project Two</h3>
+      <p>Brief description of the project.</p>
+    </div>
+    <div class="case">
+      <h3>Project Three</h3>
+      <p>Brief description of the project.</p>
+    </div>
+  </section>
+
+  <section id="clients" class="clients">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" alt="Tesla">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/NVIDIA_logo.svg" alt="NVIDIA">
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Client">
+      <p>“Amazing experience!”</p>
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Client">
+      <p>“Truly professional and creative.”</p>
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Client">
+      <p>“Highly recommended!”</p>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="About Me">
+    <div>
+      <h2>About Me</h2>
+      <p>Hi, I’m a UI/UX designer and developer passionate about crafting engaging digital experiences.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    <div class="social-icons">
+      <a href="#" target="_blank">🔗 LinkedIn</a>
+      <a href="#" target="_blank">📸 Instagram</a>
+    </div>
+  </section>
+
+</body>
+</html>
