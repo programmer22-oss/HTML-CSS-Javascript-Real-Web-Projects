@@ -1,0 +1,27 @@
+body {
+  font-family: sans-serif;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 5px;
+}
+
+.calendar-day {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.calendar-day.past {
+  opacity: 0.5;
+}
+
+.calendar-day.today {
+  background-color: #f0f0f0;
+}
+
+.calendar-day.future {
+    opacity: 0.5;
+}
