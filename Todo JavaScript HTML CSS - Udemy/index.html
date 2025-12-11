@@ -1,0 +1,29 @@
+<!DOCTYPE html> <!--Document type declaration for HTML5-->
+
+<html lang="en"> <!--Language attribute set to English-->
+
+  <head> <!--Head section of the HTML document-->
+    <meta charset="UTF-8" /> <!--Character encoding meta tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!--Responsive design meta tag--> 
+    <link rel="stylesheet" href="style.css" /> <!--Link to external CSS file-->
+    <script src="script.js" defer></script> <!--Link to external JavaScript file-->
+    <title>Todo List</title> <!--Title of the webpage-->
+  </head>
+
+  <body> <!--Body of the HTML document-->
+    <div class="content-container"> <!--Main content container-->
+
+      <div class="todo-list-container"> <!--Container for the Todo List-->
+
+        <h2 class="title">Todo App</h2> <!--Title of the Todo App-->
+
+        <div class="add-todo-container"> <!--Container for adding new Todo items-->
+          <input type="text" id="new-todo" placeholder="Add a new task" /> <!--Input field for new Todo item-->
+          <button id="add-button">Add</button> <!--Button to add the new Todo item-->
+        </div>
+        <h3>Todo List</h3> <!--Subtitle for the Todo List-->
+        <ul id="todo-list"></ul> <!--Unordered list to display Todo items-->
+      </div>
+    </div>
+  </body>
+</html>
