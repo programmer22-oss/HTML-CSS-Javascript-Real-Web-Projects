@@ -1,0 +1,1055 @@
+/* =================================================================
+   1. GENERAL & RESET STYLES
+================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* =================================================================
+   2. HEADER & NAVIGATION
+================================================================= */
+/* --- Top Bar --- */
+.top-bar {
+    background: #082a57; /* Use primary dark blue */
+    color: white;
+    padding: 10px 8%; /* Use percentage for responsive padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.top-bar span {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.9;
+}
+
+.top-bar .icon {
+    color: #00d2a8; /* Use accent color for icons */
+    font-size: 16px;
+}
+
+/* --- Main Header --- */
+.header {
+    padding: 20px 8%; /* Use percentage for responsive padding */
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; /* Align items to the start */
+    gap: 25px; /* Increased gap for better spacing */
+    background-color: #ffffff;
+    flex-wrap: wrap;
+}
+
+.logo img {
+    width: 120px; 
+}
+
+.title h1 {
+    color: #082a57; /* Use primary brand color */
+    font-size: 26px; /* Slightly reduced for better fit */
+    font-weight: 800;
+    text-align: left; /* Align text to the left */
+    line-height: 1.3;
+}
+
+.title p {
+    text-align: left; /* Align text to the left */
+    font-size: 16px;
+    margin-top: 5px;
+    color: #666;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background: #082a57; /* Use primary dark blue */
+    padding: 12px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    text-align: center;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.navbar ul li a:hover {
+    color: #00d2a8; /* Use consistent accent color on hover */
+}
+
+/* --- Sticky Navigation (Applied via JS) --- */
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays on top of other content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    animation: slideDown 0.5s ease-out; /* Smooth slide-in animation */
+}
+
+/* --- Header Responsive Styles --- */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .title h1 {
+        font-size: 20px; /* Adjust title size for smaller headers */
+        text-align: center;
+    }
+}
+
+/* --- Animation for Sticky Nav --- */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* =================================================================
+   3. HERO SECTION
+================================================================= */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Slightly increased height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Dark overlay for better text contrast --- */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 42, 87, 0.5); /* Dark blue overlay */
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    color: white;
+    text-align: center;
+    z-index: 2; /* Ensure text is above the overlay */
+    animation: fadeIn-up 1s ease-out; /* Add entrance animation */
+}
+
+.hero-text h3 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.hero-text h1 {
+    font-size: 56px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.hero-text p {
+    max-width: 600px;
+    margin: 15px auto 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.hero-text span {
+    background: linear-gradient(90deg, #009dff, #00d46b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-btn {
+    background-color: #00d2a8;
+    border-color: #00d2a8;
+    color: white;
+    padding: 12px 28px;
+    font-size: 16px;
+}
+
+.hero-btn:hover {
+    background-color: #00b58c;
+    border-color: #00b58c;
+}
+
+/* --- Animation for hero text --- */
+@keyframes fadeIn-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Hero Responsive --- */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 40px;
+    }
+    .hero-text h3 {
+        font-size: 22px;
+    }
+}
+
+/* =================================================================
+   4. SERVICES SECTION
+================================================================= */
+.services {
+    background: linear-gradient(to right, #0fb7ae, #0bc2b3);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: #ffffff;
+    width: 300px;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+}
+
+.service-card h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 14px;
+    border: 2px solid #0074ff;
+    border-radius: 8px;
+    color: #0074ff;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0074ff;
+    color: white;
+}
+
+/* =================================================================
+   5. ABOUT SECTION
+================================================================= */
+.about {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 60px 10%;
+}
+
+/* --- Left Side --- */
+.about-left {
+    width: 45%;
+    min-width: 300px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-image-holder {
+    position: relative;
+    width: fit-content;
+}
+
+.exp-badge {
+    position: absolute;
+    top: 49%;
+    right: -150px;
+    transform: translateY(-50%) rotate(90deg);
+    background: #0bb59a;
+    padding: 12px 22px;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+    border-radius: 20px;
+    white-space: nowrap;
+    z-index: 9999;
+}
+
+.about-img {
+    width: auto;
+    height: 100%;
+    max-height: 480px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* RIGHT SIDE */
+.about-right {
+    width: 50%;
+    min-width: 300px;
+}
+
+.about-right h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #082a57;
+    line-height: 1.4;
+}
+
+.about-right h2 span {
+    color: #00a4ff;
+}
+
+.about-big-text {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.about-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.lab3-img {
+    border-radius: 10px;
+}
+
+.about-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about-info-list li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #082a57;
+}
+
+.check-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background: #033b7a;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px 0;
+    border-top: 1px solid #e3e8ee;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background: #b8f2e3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0bb59a;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.info-text {
+    color: #798099;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* --- About Section Responsive --- */
+@media (max-width: 900px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-left, 
+    .about-right {
+        width: 100%;
+    }
+
+    .exp-badge {
+        position: static;
+        transform: none;
+        rotate: 0deg;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+    .about-right h2 {
+        font-size: 28px;
+    }
+
+    .about-row {
+        flex-direction: column; /* Stack the image and list on mobile */
+        align-items: center;
+    }
+}
+
+/* =================================================================
+   6. CONCERN STAFF SECTION
+================================================================= */
+/* --- Generic Content Section Styles are used for the title --- */
+/* --- See section 9 for .content-section, .section-sub, .section-title --- */
+
+/* --- Generic Content Section (FOR NABL, PUBLICATIONS, GALLERY) --- */
+.content-section {
+    padding: 70px 10%;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.content-section:nth-of-type(even) {
+    background-color: #f8faff; /* Alternating background color */
+}
+
+.section-sub {
+    color: #00b58c;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #082a57;
+    margin-bottom: 40px;
+}
+
+/* --- Staff Grid & Cards --- */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.staff-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.staff-image {
+    background-color: #eaf2ff;
+    padding-top: 20px;
+}
+
+.staff-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.staff-info {
+    padding: 25px;
+}
+
+.staff-info h3 {
+    font-size: 20px;
+    color: #082a57;
+    margin-bottom: 5px;
+}
+
+.staff-info span {
+    display: block;
+    color: #00b58c;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.staff-info p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* =================================================================
+   7. STATS SECTION
+================================================================= */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 8%;
+    color: white;
+    background: #083e7f;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    margin: 15px;
+}
+
+.stat-box h3 {
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.stat-box p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* =================================================================
+   8. RESEARCH & TECHNOLOGY SECTION
+================================================================= */
+.research {
+    padding: 60px 10%;
+    background: #f8faff;
+    text-align: center;
+}
+
+.research-sub {
+    color: #00a774;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.research-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #082a57;
+    margin-bottom: 40px;
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.research-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    padding: 0 0 25px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.research-card:hover {
+    transform: translateY(-6px);
+}
+
+.research-card img {
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+}
+
+.tag-inline {
+    display: inline-block;
+    margin: 15px 20px 10px;
+    padding: 5px 12px;
+    background: #00b67a;
+    color: white;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.research-card h3 {
+    margin: 0 20px 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #082a57;
+}
+
+.research-card p {
+    margin: 0 20px;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* --- Research Responsive --- */
+@media (max-width: 992px) {
+    .research-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =================================================================
+   9. GENERIC CONTENT SECTIONS (NABL, Publications, Gallery)
+================================================================= */
+.clients-section {
+    background: #063b89;
+    padding: 60px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    color: white;
+}
+
+.clients-left {
+    width: 35%;
+    min-width: 260px;
+}
+
+.client-sub {
+    color: #05e3a7;
+    font-weight: 600;
+}
+
+.client-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.clients-slider {
+    width: 55%;
+    overflow: hidden;
+    position: relative;
+    min-width: 300px;
+}
+.slide-track {
+    display: flex;
+    width: calc(250px * 6); 
+    animation: scroll 14s linear infinite;
+}
+
+.slide {
+    height: 120px;
+    width: 250px;
+    background: #fff;
+    margin-right: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img {
+    width: 70%;
+    height: auto;
+}
+
+@keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 3)); }
+}
+
+.clients-slider:hover .slide-track {
+    animation-play-state: paused;
+}
+
+/* --- Clients Responsive --- */
+@media (max-width: 900px) {
+    .clients-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .clients-left,
+    .clients-slider {
+        width: 100%;
+    }
+}
+
+/* --- NABL Section --- */
+.nabl-content p {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    color: #555;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* --- Publications Section --- */
+.publications-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.publications-list li {
+    background: #f8faff;
+    border-left: 4px solid #00b58c;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.publications-list h4 {
+    font-size: 18px;
+    color: #082a57;
+    margin-bottom: 8px;
+}
+
+.publications-list p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* --- Gallery Section --- */
+.gallery-filter {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: none;
+    border: 2px solid #c5d6e0;
+    color: #555;
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #00b58c;
+    border-color: #00b58c;
+    color: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =================================================================
+   11. TESTIMONIALS SECTION
+================================================================= */
+.testimonials {
+    padding: 70px 10%;
+    text-align: center;
+}
+
+.test-sub {
+    color: #00b58c;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.test-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #082a57;
+    margin-bottom: 40px;
+}
+
+.test-wrapper {
+    display: flex;
+    gap: 30px;
+    overflow-x: hidden;        /* Hide scrollbar, control with JS */
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+    flex-wrap: nowrap;         /* important for scrolling */
+    margin: 0 auto;            /* Center the wrapper itself */
+    width: 380px;              /* Set width to one card for centering */
+}
+
+/* --- Scrollbar design (for browsers that support it) --- */
+.test-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.test-wrapper::-webkit-scrollbar-track {
+    background: #e6eef5;
+    border-radius: 10px;
+}
+
+.test-wrapper::-webkit-scrollbar-thumb {
+    background: #00b58c;
+    border-radius: 10px;
+}
+
+.test-card {
+    width: 380px;              /* FIXED SIZE for scroll */
+    min-width: 380px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+    flex-shrink: 0;            /* PREVENT SHRINKING */
+}
+
+.test-card:hover {
+    transform: translateY(-6px);
+}
+
+.test-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.test-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.test-author img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.test-author h4 {
+    font-size: 17px;
+    margin: 0;
+    font-weight: 700;
+    color: #082a57;
+}
+
+.test-author span {
+    font-size: 13px;
+    color: #777;
+}
+
+.quote {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    font-size: 34px;
+    color: #00b58c;
+}
+
+.dots {
+    margin-top: 25px;
+}
+
+.dot {
+    height: 10px;
+    width: 22px;
+    background: #c5d6e0;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 0 4px;
+    transition: 0.3s;
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.dot.active {
+    background: #00b58c;
+    width: 40px;
+}
+
+/* --- Testimonials Responsive --- */
+@media (max-width: 480px) {
+    .test-wrapper {
+        width: 100%; /* Allow wrapper to be full width */
+    }
+    .test-card {
+        /* Let the card fill the wrapper's width */
+        width: 100%; 
+        min-width: 100%; 
+        padding: 30px;
+    }
+}
+.footer {
+    background-color: #082a57;
+    color: white;
+    padding: 50px 10%;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+
+}
+
+.footer-logo {
+    /* Circular design for the logo */
+    background-color: rgba(24, 12, 90, 0.05);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    width: 100px; /* Resized logo to fit circle */
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 25px; /* Increased margin */
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #3460be;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #00d2a8;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #00d2a8;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+    color: #cbd7f0;
+}
+
+.footer-contact-title {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.footer-email, .footer-phone {
+    font-size: 15px;
+    color: #00d2a8;
+}
+
+.footer-email span,
+.footer-phone span {
+    margin-right: 8px;
+}
+
+/* --- Footer Responsive --- */
+@media (max-width: 992px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: left;
+    }
+}
